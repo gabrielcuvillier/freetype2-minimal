@@ -173,7 +173,8 @@ if(FREETYPE_MINIMAL)
 endif()
 
 if (MSVC)
-  add_compile_options("/wd4244 /wd4267")
+  add_compile_options(/wd4244)
+  add_compile_options(/wd4267)
 endif()
 
 
