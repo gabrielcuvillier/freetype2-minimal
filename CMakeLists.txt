@@ -258,11 +258,8 @@ if (BUILD_FRAMEWORK)
   set(BUILD_SHARED_LIBS ON)
 endif ()
 
-
 # Find dependencies
-if(NOT EMSCRIPTEN)
 include(FindPkgConfig)
-endif()
 
 if (NOT FT_DISABLE_HARFBUZZ)
   set(HARFBUZZ_MIN_VERSION "2.0.0")
