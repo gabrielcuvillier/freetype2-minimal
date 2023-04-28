@@ -25,8 +25,6 @@
 #include FT_CONFIG_CONFIG_H
 #include <freetype/internal/tttypes.h>
 
-#ifdef FT_CONFIG_OPTION_POSTSCRIPT_NAMES
-
 FT_BEGIN_HEADER
 
 
@@ -37,9 +35,6 @@ FT_BEGIN_HEADER
 
   FT_LOCAL( void )
   tt_face_free_ps_names( TT_Face  face );
-
-
-FT_END_HEADER
 
 #endif
 
