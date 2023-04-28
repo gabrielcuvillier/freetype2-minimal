@@ -36,8 +36,6 @@ FT_BEGIN_HEADER
   FT_LOCAL( void )
   tt_face_free_ps_names( TT_Face  face );
 
-#endif
-
 #endif /* TTPOST_H_ */
 
 
