@@ -25,6 +25,7 @@
 #include FT_CONFIG_CONFIG_H
 #include <freetype/internal/tttypes.h>
 
+#ifdef FT_CONFIG_OPTION_POSTSCRIPT_NAMES
 
 FT_BEGIN_HEADER
 
@@ -39,6 +40,8 @@ FT_BEGIN_HEADER
 
 
 FT_END_HEADER
+
+#endif
 
 #endif /* TTPOST_H_ */
 
