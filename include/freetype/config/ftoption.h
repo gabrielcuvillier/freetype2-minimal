@@ -109,8 +109,9 @@ FT_BEGIN_HEADER
    * ```
    *
    */
+#ifndef FREETYPE_MINIMAL
 #define FT_CONFIG_OPTION_ENVIRONMENT_PROPERTIES
-
+#endif
 
   /**************************************************************************
    *
@@ -180,8 +181,9 @@ FT_BEGIN_HEADER
    *
    *   Define this macro if you want to enable this 'feature'.
    */
+#ifndef FREETYPE_MINIMAL
 #define FT_CONFIG_OPTION_USE_LZW
-
+#endif
 
   /**************************************************************************
    *
@@ -224,8 +226,9 @@ FT_BEGIN_HEADER
    *   `configure` script) and you define this macro, you also have to pass
    *   `SYSTEM_ZLIB=yes` as an argument to make.
    */
-/* #define FT_CONFIG_OPTION_SYSTEM_ZLIB */
-
+#ifdef FREETYPE_MINIMAL
+#define FT_CONFIG_OPTION_SYSTEM_ZLIB
+#endif
 
   /**************************************************************************
    *
@@ -255,8 +258,9 @@ FT_BEGIN_HEADER
    * stream support, in the cases where file stream support is not necessary
    * such as memory loading of font files.
    */
-/* #define FT_CONFIG_OPTION_DISABLE_STREAM_SUPPORT */
-
+#ifdef FREETYPE_MINIMAL
+#define FT_CONFIG_OPTION_DISABLE_STREAM_SUPPORT
+#endif
 
   /**************************************************************************
    *
@@ -348,8 +352,9 @@ FT_BEGIN_HEADER
    *   in your 'psnames' module.  The Type~1 driver will not be able to
    *   synthesize a Unicode charmap out of the glyphs found in the fonts.
    */
+#ifndef FREETYPE_MINIMAL
 #define FT_CONFIG_OPTION_ADOBE_GLYPH_LIST
-
+#endif
 
   /**************************************************************************
    *
@@ -361,8 +366,9 @@ FT_BEGIN_HEADER
    *
    *   Note that the 'FOND' resource isn't checked.
    */
+#ifndef FREETYPE_MINIMAL
 #define FT_CONFIG_OPTION_MAC_FONTS
-
+#endif
 
   /**************************************************************************
    *
@@ -393,8 +399,9 @@ FT_BEGIN_HEADER
    * incrementally as the document is parsed, such as the Ghostscript
    * interpreter for the PostScript language.
    */
+#ifndef FREETYPE_MINIMAL
 #define FT_CONFIG_OPTION_INCREMENTAL
-
+#endif
 
   /**************************************************************************
    *
@@ -538,8 +545,9 @@ FT_BEGIN_HEADER
    *
    *   More details on the hooks can be found in file `otsvg.h`.
    */
+#ifndef FREETYPE_MINIMAL
 #define FT_CONFIG_OPTION_SVG
-
+#endif
 
   /**************************************************************************
    *
@@ -569,8 +577,9 @@ FT_BEGIN_HEADER
    * embedded bitmaps in all formats using the 'sfnt' module (namely
    * TrueType~& OpenType).
    */
+#ifndef FREETYPE_MINIMAL
 #define TT_CONFIG_OPTION_EMBEDDED_BITMAPS
-
+#endif
 
   /**************************************************************************
    *
@@ -578,8 +587,9 @@ FT_BEGIN_HEADER
    * outlines (from the 'COLR'/'CPAL' tables) in all formats using the 'sfnt'
    * module (namely TrueType~& OpenType).
    */
+#ifndef FREETYPE_MINIMAL
 #define TT_CONFIG_OPTION_COLOR_LAYERS
-
+#endif
 
   /**************************************************************************
    *
@@ -593,8 +603,9 @@ FT_BEGIN_HEADER
    *
    * (By default, the module uses 'psnames' to extract glyph names.)
    */
+#ifndef FREETYPE_MINIMAL
 #define TT_CONFIG_OPTION_POSTSCRIPT_NAMES
-
+#endif
 
   /**************************************************************************
    *
@@ -607,8 +618,9 @@ FT_BEGIN_HEADER
    * Accessing SFNT names is done through the functions declared in
    * `ftsnames.h`.
    */
+#ifndef FREETYPE_MINIMAL
 #define TT_CONFIG_OPTION_SFNT_NAMES
-
+#endif
 
   /**************************************************************************
    *
@@ -647,8 +659,9 @@ FT_BEGIN_HEADER
    * Do not `#undef` this macro here, since the build system might define it
    * for certain configurations only.
    */
+#ifndef FREETYPE_MINIMAL
 #define TT_CONFIG_OPTION_BYTECODE_INTERPRETER
-
+#endif
 
   /**************************************************************************
    *
@@ -736,8 +749,9 @@ FT_BEGIN_HEADER
    * 'avar' tables).  Tagged 'Font Variations', this is now part of OpenType
    * also.  This has many similarities to Type~1 Multiple Masters support.
    */
+#ifndef FREETYPE_MINIMAL
 #define TT_CONFIG_OPTION_GX_VAR_SUPPORT
-
+#endif
 
   /**************************************************************************
    *
@@ -754,7 +768,9 @@ FT_BEGIN_HEADER
    * the near future, since it is assumed that eventually those features are
    * added to the OpenType standard.
    */
-/* #define TT_CONFIG_OPTION_NO_BORING_EXPANSION */
+#ifdef FREETYPE_MINIMAL
+#define TT_CONFIG_OPTION_NO_BORING_EXPANSION
+#endif
 
 
   /**************************************************************************
@@ -762,8 +778,9 @@ FT_BEGIN_HEADER
    * Define `TT_CONFIG_OPTION_BDF` if you want to include support for an
    * embedded 'BDF~' table within SFNT-based bitmap formats.
    */
+#ifndef FREETYPE_MINIMAL
 #define TT_CONFIG_OPTION_BDF
-
+#endif
 
   /**************************************************************************
    *

@@ -110,7 +110,7 @@
 
 # To minimize the number of cmake_policy() workarounds,
 # CMake >= 3 is requested.
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.10.2)
 
 if (NOT CMAKE_VERSION VERSION_LESS 3.3)
   # Allow symbol visibility settings also on static libraries. CMake < 3.3
@@ -165,6 +165,12 @@ project(freetype C)
 set(VERSION_MAJOR "2")
 set(VERSION_MINOR "13")
 set(VERSION_PATCH "0")
+
+option(FREETYPE_MINIMAL "Minimal freetype build" OFF)
+
+if(FREETYPE_MINIMAL)
+  add_compile_definitions(FREETYPE_MINIMAL)
+endif()
 
 # Generate LIBRARY_VERSION and LIBRARY_SOVERSION.
 set(LIBTOOL_REGEX "version_info='([0-9]+):([0-9]+):([0-9]+)'")
@@ -379,7 +385,16 @@ file(GLOB PUBLIC_HEADERS "include/ft2build.h" "include/freetype/*.h")
 file(GLOB PUBLIC_CONFIG_HEADERS "include/freetype/config/*.h")
 file(GLOB PRIVATE_HEADERS "include/freetype/internal/*.h")
 
-
+if(FREETYPE_MINIMAL)
+  set(BASE_SRCS
+      src/base/ftbase.c
+      src/base/ftbitmap.c
+      src/base/ftinit.c
+      src/sfnt/sfnt.c
+      src/smooth/smooth.c
+      src/truetype/truetype.c
+      )
+else()
 set(BASE_SRCS
   src/autofit/autofit.c
   src/base/ftbase.c
@@ -422,6 +437,7 @@ set(BASE_SRCS
   src/type42/type42.c
   src/winfonts/winfnt.c
 )
+endif()
 
 if (UNIX)
   list(APPEND BASE_SRCS "builds/unix/ftsystem.c")
