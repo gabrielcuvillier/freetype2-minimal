@@ -121,6 +121,10 @@ if (NOT CMAKE_VERSION VERSION_LESS 3.3)
   cmake_policy(SET CMP0057 NEW)
 endif ()
 
+if (DEFINED ZLIB_ROOT)
+  list(APPEND CMAKE_FIND_ROOT_PATH ${ZLIB_ROOT})
+endif()
+
 include(CheckIncludeFile)
 include(CMakeDependentOption)
 
