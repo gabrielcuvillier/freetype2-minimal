@@ -172,6 +172,11 @@ if(FREETYPE_MINIMAL)
   add_compile_definitions(FREETYPE_MINIMAL)
 endif()
 
+if (MSVC)
+  add_compile_options("/wd4244 /wd4267")
+endif()
+
+
 # Generate LIBRARY_VERSION and LIBRARY_SOVERSION.
 set(LIBTOOL_REGEX "version_info='([0-9]+):([0-9]+):([0-9]+)'")
 file(STRINGS "${PROJECT_SOURCE_DIR}/builds/unix/configure.raw"
